@@ -357,8 +357,6 @@ jobs:
             --manifest-path py-polars/Cargo.toml
             --interpreter python3.10
             --out wasm-dist
-            --
-            -Zbuild-std
           maturin-version: 1.8.3
 
       - name: Upload wheel

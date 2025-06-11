@@ -70,6 +70,4 @@ jobs:
             --profile dev
             --manifest-path py-polars/Cargo.toml
             --interpreter python3.10
-            --
-            -Zbuild-std
           maturin-version: 1.8.3
