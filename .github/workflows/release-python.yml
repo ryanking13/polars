@@ -339,13 +339,13 @@ jobs:
         uses: mymindstorm/setup-emsdk@v14
         with:
           # This should match the exact version of Emscripten used by Pyodide
-          # UPDATE; set to latest due to breaking build
-          version: latest
+          # 4.0.9 is an Emscripten version for Pyodide abi_2025_0
+          version: 4.0.9
 
       - name: Set CFLAGS and RUSTFLAGS for wasm32
         run: |
             echo "CFLAGS=-fPIC" >> $GITHUB_ENV
-            echo "RUSTFLAGS=-C link-self-contained=no" >> $GITHUB_ENV
+            echo "RUSTFLAGS=-C link-self-contained=no -Zemscripten-wasm-eh" >> $GITHUB_ENV
 
       - name: Build wheel
         uses: PyO3/maturin-action@v1
@@ -357,6 +357,8 @@ jobs:
             --manifest-path py-polars/Cargo.toml
             --interpreter python3.10
             --out wasm-dist
+            --
+            -Zbuild-std
           maturin-version: 1.8.3
 
       - name: Upload wheel
