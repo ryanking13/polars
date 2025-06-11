@@ -86,7 +86,6 @@ all = [
 
 [tool.maturin]
 include = [{ path = "rust-toolchain.toml", format = "sdist" }]
-unstable-flags = ["build-std=std,panic_abort"]
 
 [tool.mypy]
 files = ["polars", "tests"]
