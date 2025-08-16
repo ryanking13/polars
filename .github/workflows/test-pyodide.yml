@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  RUSTFLAGS: -C link-self-contained=no -C debuginfo=0 -Zbuild-std
+  RUSTFLAGS: -C link-self-contained=no -C debuginfo=0
   CFLAGS: -fPIC
 
 defaults:
