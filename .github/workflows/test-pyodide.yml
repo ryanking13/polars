@@ -73,3 +73,9 @@ jobs:
             rustup target add wasm32-unknown-emscripten
             rustup component add rust-src
           CIBW_CONFIG_SETTINGS_PYODIDE: "build-args=--profile=dev build-args=--manifest-path=Cargo.toml"
+
+      - name: Upload wheel
+        uses: actions/upload-artifact@v4
+        with:
+          name: pyodide-wasm-wheel
+          path: wasm-dist/*.whl
